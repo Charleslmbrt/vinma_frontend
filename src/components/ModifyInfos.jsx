@@ -13,7 +13,7 @@ export default function Modifyinfos({ infosModified, infosUser }) {
     console.log(infosUser);
     try {
       const modif = await axios.put(
-        "http://localhost:8080/modification/" + infosUser.userId,
+        "https://vinma.herokuapp.com/modification/" + infosUser.userId,
         {
           name: newName,
           email: newEmail,

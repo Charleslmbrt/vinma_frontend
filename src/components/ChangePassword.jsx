@@ -11,7 +11,7 @@ export default function ChangePassword({ infosUser }) {
 
     try {
       const modif = await axios.put(
-        "http://localhost:8080/modification/" + infosUser.userId,
+        "https://vinma.herokuapp.com/modification/" + infosUser.userId,
         {
           password: newPassword,
         },

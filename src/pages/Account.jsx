@@ -19,7 +19,7 @@ const Account = ({
   handleInfosUser,
   search,
   setSearch,
-  data
+  data,
 }) => {
   const params = useParams();
   const navigate = useNavigate();
@@ -36,9 +36,8 @@ const Account = ({
   const [userId, setUserId] = useState("");
 
   const getInfos = async () => {
-    // const userId = localStorage.getItem("id");
     const userInfos = await axios.get(
-      `http://localhost:8080/userinfos/${params.id}`,
+      `https://vinma.herokuapp.com/userinfos/${params.id}`,
       {
         headers: {
           Authorization: userToken,
@@ -82,7 +81,7 @@ const Account = ({
     },
     {
       title: "publications",
-      content: <MyPublications infosUser={infosUser} data={data}/>,
+      content: <MyPublications infosUser={infosUser} data={data} />,
     },
     {
       title: "password",

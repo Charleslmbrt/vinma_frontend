@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // import assets
-import Logo from "../img/logo-hema.svg";
+import Logo from "../img/vinma.svg";
 import {
   MagnifyingGlassIcon,
   UserIcon,
@@ -33,12 +33,12 @@ const Header = ({
   return (
     <>
       <div className="global-header border-b-[1px] sticky top-0 z-50">
-        <div className="flex justify-between bg-white w-full h-20 flex items-center px-4">
+        <div className="justify-between bg-white w-full h-20 flex items-center px-4">
           <div className="left">
             <img
               src={Logo}
               alt=""
-              className="w-12 h-12 hover:cursor-pointer"
+              className="w-28 h-12 hover:cursor-pointer"
               onClick={() => {
                 navigate("/");
               }}
@@ -61,7 +61,11 @@ const Header = ({
                 <button
                   className="rounded-lg py-2 px-10  mr-4 bg-amber-400 hover:bg-black duration-300 text-white text-sm hover:transition hover:duration-300 hover:ease-in-out"
                   onClick={() => {
-                    navigate("/publication");
+                    if (userToken) {
+                      navigate("/publication");
+                    } else {
+                      navigate("/login");
+                    }
                   }}
                 >
                   Sell now
@@ -71,14 +75,17 @@ const Header = ({
                 <MagnifyingGlassIcon className="h-6 w-6 text-slate-900 mr-3 sm:hidden" />
               </li>
               <li className="flex">
-              <div className="" onClick={() => {
+                <div
+                  className=""
+                  onClick={() => {
                     if (userToken) {
                       navigate(`/account/${infosUser.userId}`);
                     } else {
                       navigate("/login");
                     }
-                  }}>
-                    {infosUser ? (
+                  }}
+                >
+                  {infosUser ? (
                     <div className="flex mr-3 items-center space-x-2 cursor-pointer">
                       <img
                         className="w-8 h-8 rounded-full object-cover "
@@ -89,7 +96,7 @@ const Header = ({
                   ) : (
                     <UserIcon className="h-6 w-6 text-slate-900 mr-3 hover:cursor-pointer" />
                   )}
-              </div>
+                </div>
               </li>
               {cart.length ? (
                 <li className="flex">

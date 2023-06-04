@@ -1,14 +1,9 @@
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 //import components
 import Header from "../components/Header";
 import Banner from "../components/Banner";
-import Filters from "../components/Filters";
-import Pagination from "../components/Pagination";
 
 const Home = ({
   data,
@@ -110,14 +105,14 @@ const Home = ({
               <img
                 className="w-full h-[200px] object-cover rounded-lg mb-5"
                 src={post.images[0].secure_url}
-                alt={`photo of ${post.title}`}
+                alt={`${post.title}`}
               />
               <div className="flex justify-between items-end sm:flex-col sm:items-start">
                 <h2 className="text-md truncate">{post.title}</h2>
                 <h2 className="text-3xl font-bold">{post.price} €</h2>
               </div>
               <div className="flex justify-between">
-                <div className="text-center grow rounded-lg mr-2 mt-5 py-4  bg-orange-400 hover:bg-black duration-300 rounded-md text-white text-sm hover:transition hover:duration-300 hover:ease-in-out">
+                <div className="text-center grow mr-2 mt-5 py-4  bg-orange-400 hover:bg-black duration-300 rounded-md text-white text-sm hover:transition hover:duration-300 hover:ease-in-out">
                   <Link to={`/product/${post._id}`}> Product details</Link>
                 </div>
 
@@ -126,7 +121,7 @@ const Home = ({
                   onClick={() => {
                     addToCart(post);
                   }}
-                  className="rounded-lg mt-5 py-4  px-5 bg-amber-400 hover:bg-black duration-300 rounded-md text-white text-sm hover:transition hover:duration-300 hover:ease-in-out"
+                  className=" mt-5 py-4  px-5 bg-amber-400 hover:bg-black duration-300 rounded-md text-white text-sm hover:transition hover:duration-300 hover:ease-in-out"
                 >
                   <ShoppingCartIcon className="h-5 w-5 text-white" />
                 </button>
@@ -135,7 +130,7 @@ const Home = ({
           );
         })}
       </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </>
   );
 };

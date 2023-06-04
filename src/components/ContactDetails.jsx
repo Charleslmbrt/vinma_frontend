@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function ContactDetails({
   name,
@@ -8,8 +8,7 @@ export default function ContactDetails({
   modifyInfos,
   modifyAddress,
 }) {
-  const [newAddress, setNewAddress] = useState("");
-  console.log("name au niveau de contact details =", name);
+  // const [newAddress, setNewAddress] = useState("");
 
   return (
     <>

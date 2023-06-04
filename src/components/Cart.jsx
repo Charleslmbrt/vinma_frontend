@@ -1,7 +1,7 @@
 // import packages
 import { ChevronLeftIcon, TrashIcon } from "@heroicons/react/24/outline";
 
-const Cart = ({ toggleCart, cart, removeFromCart, data }) => {
+const Cart = ({ toggleCart, cart, removeFromCart }) => {
   let total = 0;
 
   return (

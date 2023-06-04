@@ -49,7 +49,7 @@ const Publication = ({
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/publication",
+        "https://vinma.herokuapp.com/publication",
         formData,
         {
           headers: {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ handleToken, setInfosUser, handleInfosUser }) => {
+const Login = ({ handleToken, handleInfosUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,7 +11,7 @@ const Login = ({ handleToken, setInfosUser, handleInfosUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put("http://localhost:8080/login", {
+      const response = await axios.put("https://vinma.herokuapp.com/ogin", {
         email: email,
         password: password,
       });

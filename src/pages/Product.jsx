@@ -27,7 +27,7 @@ const Product = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `http://localhost:8080/read-one-post/${params.id}`
+        `https://vinma.herokuapp.com/read-one-post/${params.id}`
       );
       setPostData(response.data);
       setIsLoading(false);
@@ -88,8 +88,12 @@ const Product = ({
             <p className="text-gray-700">{postData.description}</p>
             <h6 className="text-2xl font-semibold">{postData.price} €</h6>
             <div className="flex flex-row items-center gap-12">
-              <button className=" bg-amber-400 hover:bg-yellow-600 text-white font-semibold py-3 px-16 rounded-md h-full"
-              onClick={()=>{addToCart(postData)}}>
+              <button
+                className=" bg-amber-400 hover:bg-yellow-600 text-white font-semibold py-3 px-16 rounded-md h-full"
+                onClick={() => {
+                  addToCart(postData);
+                }}
+              >
                 Add to Cart
               </button>
             </div>
@@ -103,7 +107,7 @@ const Product = ({
           {data.map((post) => {
             if (
               post.category === postData.category &&
-              post.title != postData.title
+              post.title !== postData.title
             ) {
               return (
                 <div>
@@ -130,7 +134,7 @@ const Product = ({
                         onClick={() => {
                           addToCart(post);
                         }}
-                        className="rounded-lg mt-5 py-4  px-5 bg-amber-400 hover:bg-black duration-300 rounded-md text-white text-sm hover:transition hover:duration-300 hover:ease-in-out"
+                        className="mt-5 py-4  px-5 bg-amber-400 hover:bg-black duration-300 rounded-md text-white text-sm hover:transition hover:duration-300 hover:ease-in-out"
                       >
                         <ShoppingCartIcon className="h-5 w-5 text-white" />
                       </button>
@@ -139,6 +143,7 @@ const Product = ({
                 </div>
               );
             }
+            return null;
           })}
         </div>
       </div>

@@ -30,7 +30,7 @@ const Signup = ({ handleToken }) => {
         formData.append("password", password);
 
         const response = await axios.post(
-          "http://localhost:8080/signup",
+          "https://vinma.herokuapp.com/signup",
           formData,
 
           {
